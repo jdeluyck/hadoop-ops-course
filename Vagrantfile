@@ -8,7 +8,7 @@ Vagrant.configure(2) do |config|
     node1.vm.provision "shell", path: "scripts/install_ambari_server.sh"
     node1.vm.network "forwarded_port", guest: 8080, host: 8080
     node1.vm.provider "virtualbox" do |v|
-      v.memory = 4096
+      v.memory = 2048
       v.cpus = 2
       v.customize ['modifyvm', :id, '--cableconnected1', 'on']
     end
@@ -20,7 +20,7 @@ Vagrant.configure(2) do |config|
     node2.vm.hostname = "node2.example.com"
     node2.vm.provision "shell", path: "scripts/install_ambari_agent.sh"
     node2.vm.provider "virtualbox" do |v|
-      v.memory = 4096
+      v.memory = 2048
       v.cpus = 2
       v.customize ['modifyvm', :id, '--cableconnected1', 'on']
     end
